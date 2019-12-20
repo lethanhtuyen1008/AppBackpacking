@@ -1,7 +1,7 @@
-import { all, takeLatest, call, put, fork, delay } from "redux-saga/effects";
+import {all, takeLatest, call, put, fork, delay} from 'redux-saga/effects';
 import * as Types from '../constants';
-import { getToursListSuccess } from "../actions";
-import { getTourListFromApi } from "./api";
+import {getToursListSuccess} from '../actions';
+import {getTourListFromApi} from './api';
 
 function* onGetToursList() {
   try {
@@ -9,9 +9,9 @@ function* onGetToursList() {
     const response = yield call(getTourListFromApi);
     //console.log(response.data.data);
     yield put(getToursListSuccess(response.data.data));
-    yield put(hideLoader())
+    yield put(hideLoader());
   } catch (error) {
-    console.log("List Tours", error);
+    console.log('List Tours', error);
   }
 }
 
@@ -20,7 +20,5 @@ function* watchOnGetToursList() {
 }
 
 export default function* rootSaga() {
-  yield all([
-    fork(watchOnGetToursList)
-  ]);
+  yield all([fork(watchOnGetToursList)]);
 }

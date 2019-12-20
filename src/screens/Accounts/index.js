@@ -1,26 +1,29 @@
-import React from 'react';
-import {createAppContainer} from 'react-navigation';
-import LoginScreen from './SignIn';
-import SignUpScreen from './SignUp';
-import {createStackNavigator} from 'react-navigation-stack';
+import React, { Component } from 'react';
+import { createAppContainer } from 'react-navigation';
+import { createStackNavigator } from 'react-navigation-stack';
+import {
+  Container,
+  Header,
+  Content,
+  Footer,
+  FooterTab,
+  Button,
+  Text,
+  Fab,
+  Segment,
+} from 'native-base';
 
-const RootStack = createStackNavigator(
-  {
-    Login: LoginScreen,
-    SignUp: SignUpScreen,
-  },
-  {
-    initialRouteName: 'Login',
-    defaultNavigationOptions: {
-      headerStyle: {
-        display: 'none',
-      },
-      headerTintColor: '#fff',
-      headerTitleStyle: {
-        fontWeight: 'bold',
-      },
-    },
-  },
-);
+import Account from './Routes'
+const ContenIndex = createAppContainer(Account);
 
-export default RootStack;
+class index extends Component {
+  render() {
+    return (
+      <Container>
+        <ContenIndex />
+      </Container>
+    );
+  }
+}
+
+export default index;

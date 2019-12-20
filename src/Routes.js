@@ -1,20 +1,20 @@
 import * as React from 'react';
-import {Button, View, Text} from 'react-native';
+import { Button, View, Text } from 'react-native';
 
 import BlogScreen from './screens/Blog';
 import AccountScreen from './screens/Accounts';
 import HomeScreen from './screens/Home';
-import ScheduleScreen from './screens/Schedule';
+import ScheduleScreen from './screens/Schedule/Routes.js';
 import GroupScreen from './screens/Group';
 import ChatScreen from './screens/Chat';
 
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import Iicon from 'react-native-vector-icons/Ionicons';
 import Eicon from 'react-native-vector-icons/Entypo';
-import {createBottomTabNavigator} from 'react-navigation-tabs';
+import { createBottomTabNavigator } from 'react-navigation-tabs';
 
 const getTabBarIcon = (navigation, focused, tintColor) => {
-  const {routeName} = navigation.state;
+  const { routeName } = navigation.state;
   let IconComponent = Icon;
   let iconName;
   switch (routeName) {
@@ -22,11 +22,11 @@ const getTabBarIcon = (navigation, focused, tintColor) => {
       iconName = 'home';
       break;
     }
-    case 'Blog': {
-      iconName = 'blog';
-      break;
-    }
-    case 'Schedule': {
+    // case 'Blog': {
+    //   iconName = 'blog';
+    //   break;
+    // }
+    case 'Schedules': {
       iconName = 'calendar';
       break;
     }
@@ -48,16 +48,17 @@ const getTabBarIcon = (navigation, focused, tintColor) => {
 
 const RootStack = createBottomTabNavigator(
   {
-    Home: {screen: HomeScreen},
-    Blog: {screen: BlogScreen},
-    Schedule: {screen: ScheduleScreen},
-    Group: {screen: GroupScreen},
-    Chat: {screen: ChatScreen},
-    Accounts: {screen: AccountScreen},
+    Home: { screen: HomeScreen },
+    // Blog: {screen: BlogScreen},
+    Schedules: { screen: ScheduleScreen },
+    Group: { screen: GroupScreen },
+    Chat: { screen: ChatScreen },
+    Accounts: { screen: AccountScreen },
   },
   {
-    defaultNavigationOptions: ({navigation}) => ({
-      tabBarIcon: ({focused, tintColor}) =>
+    initialRouteName: "Home",
+    defaultNavigationOptions: ({ navigation }) => ({
+      tabBarIcon: ({ focused, tintColor }) =>
         getTabBarIcon(navigation, focused, tintColor),
       tabBarLabel: <View />,
     }),

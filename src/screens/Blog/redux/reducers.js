@@ -1,5 +1,5 @@
 import * as Types from './constants';
-import produce from 'immer';
+//import produce from 'immer';
 
 const initialState = {
   productList: [],

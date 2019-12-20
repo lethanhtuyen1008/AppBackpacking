@@ -44,7 +44,7 @@ const Index = ({tuyen}) => {
           <Image
             source={{
               uri:
-                'https://cdn.pixabay.com/photo/2017/09/14/11/13/water-2748657__340.png',
+                'https://i-dulich.vnecdn.net/2019/03/16/1-3-1552732057_680x0.jpg',
             }}
             style={{height: 200, width: 370, flex: 1}}
           />
